@@ -4,6 +4,7 @@ import argparse
 
 
 def detect(input_vid_path):
+# Read and convert the video to blob and perform forward pass
     cap = cv2.VideoCapture(input_vid_path)
 
     fps = cap.get(cv2.CAP_PROP_FPS)
@@ -26,11 +27,13 @@ def detect(input_vid_path):
             break
 
         count += 1
+        # Vẽ các hộp giới hạn đã lọc với lớp của chúng lên hình ảnh
         for i in range(len(df[df.Frame == count])):
             x = int(df[df.Frame == count]['X'].iloc[i])
             y = int(df[df.Frame == count]['Y'].iloc[i])
             w = int(df[df.Frame == count]['Width'].iloc[i])
             h = int(df[df.Frame == count]['Height'].iloc[i])
+            # Blur the ROI of the detected licence plate
             # cv2.rectangle(frame, (x, y), (x + w, y + h), (156, 156, 156), 2)
             # blur_img = cv2.blur(frame[y: y + h, x: x + w], (int(w)//4, int(h)//4), 0)
             frame[y: y + h, x: x + w] = (156, 156, 156)
