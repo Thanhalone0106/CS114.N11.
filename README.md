@@ -45,7 +45,7 @@
       <tr>
        <td>Nguyễn Anh Tuấn</td>
        <td>20522114</td>
-       <td>https://github.com/TTTThanh2812</td>
+       <td></td>
        <td>20522114@gm.uit.edu.vn</td>  
       </tr>
 </table>
